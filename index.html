@@ -1,0 +1,557 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>रक्षा बंधन की शुभकामनाएं - सोनू और मोनू के लिए</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Noto+Sans+Devanagari:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary-gradient: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            --secondary-gradient: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+            --accent-color: #6366f1;
+            --text-primary: #1f2937;
+            --text-secondary: #6b7280;
+            --text-white: #ffffff;
+            --surface-white: #ffffff;
+            --surface-gray: #f8fafc;
+            --border-light: #e5e7eb;
+            --shadow-soft: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+            --shadow-medium: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+            --shadow-large: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+        }
+
+        body {
+            font-family: 'Noto Sans Devanagari', 'Inter', sans-serif;
+            background: linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%);
+            min-height: 100vh;
+            line-height: 1.6;
+            color: var(--text-primary);
+        }
+
+        /* Subtle background decoration */
+        .bg-decoration {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 1;
+            opacity: 0.03;
+            background-image: 
+                radial-gradient(circle at 25% 25%, #667eea 0%, transparent 50%),
+                radial-gradient(circle at 75% 75%, #f093fb 0%, transparent 50%);
+        }
+
+        .container {
+            position: relative;
+            z-index: 2;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem 1rem;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            gap: 3rem;
+        }
+
+        /* Header Section */
+        .header {
+            text-align: center;
+            animation: fadeInDown 0.8s ease-out;
+        }
+
+        .main-title {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(2.5rem, 5vw, 4rem);
+            font-weight: 700;
+            background: var(--primary-gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 0.5rem;
+            letter-spacing: -0.02em;
+        }
+
+        .subtitle {
+            font-size: clamp(1rem, 2.5vw, 1.25rem);
+            color: var(--text-secondary);
+            font-weight: 400;
+            margin-bottom: 1rem;
+        }
+
+        .decorative-line {
+            width: 100px;
+            height: 3px;
+            background: var(--secondary-gradient);
+            margin: 0 auto;
+            border-radius: 2px;
+        }
+
+        /* Sisters Cards Section */
+        .sisters-section {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            max-width: 800px;
+            margin: 0 auto;
+            animation: fadeInUp 0.8s ease-out 0.2s both;
+        }
+
+        .sister-card {
+            background: var(--surface-white);
+            border-radius: 24px;
+            padding: 2rem;
+            text-align: center;
+            box-shadow: var(--shadow-medium);
+            border: 1px solid var(--border-light);
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .sister-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: var(--primary-gradient);
+            transform: scaleX(0);
+            transition: transform 0.3s ease;
+        }
+
+        .sister-card:hover::before {
+            transform: scaleX(1);
+        }
+
+        .sister-card:hover {
+            transform: translateY(-8px);
+            box-shadow: var(--shadow-large);
+        }
+
+        .avatar-container {
+            position: relative;
+            width: 120px;
+            height: 120px;
+            margin: 0 auto 1.5rem;
+        }
+
+        .avatar {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 3rem;
+            color: var(--text-white);
+            box-shadow: var(--shadow-medium);
+            transition: transform 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .sonu-avatar {
+            background: linear-gradient(135deg, #ff6b9d 0%, #ff8fab 50%, #ffa8c5 100%);
+        }
+
+        .monu-avatar {
+            background: linear-gradient(135deg, #667eea 0%, #8a9ff7 50%, #a8c0ff 100%);
+        }
+
+        .avatar::after {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: linear-gradient(45deg, transparent, rgba(255,255,255,0.2), transparent);
+            transform: rotate(45deg);
+            transition: transform 0.6s ease;
+        }
+
+        .sister-card:hover .avatar {
+            transform: scale(1.05);
+        }
+
+        .sister-card:hover .avatar::after {
+            transform: rotate(225deg);
+        }
+
+        .sister-name {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.75rem;
+            font-weight: 600;
+            color: var(--text-primary);
+            margin-bottom: 1rem;
+            letter-spacing: -0.01em;
+        }
+
+        .sister-message {
+            font-size: 1rem;
+            color: var(--text-secondary);
+            line-height: 1.7;
+        }
+
+        .sister-message .highlight {
+            color: var(--accent-color);
+            font-weight: 500;
+        }
+
+        /* Main Wishes Card */
+        .wishes-card {
+            background: var(--surface-white);
+            border-radius: 32px;
+            padding: 3rem;
+            box-shadow: var(--shadow-large);
+            border: 1px solid var(--border-light);
+            position: relative;
+            animation: fadeInUp 0.8s ease-out 0.4s both;
+            overflow: hidden;
+        }
+
+        .wishes-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 6px;
+            background: var(--secondary-gradient);
+        }
+
+        .wishes-content {
+            position: relative;
+            z-index: 2;
+        }
+
+        .wishes-title {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(1.5rem, 3vw, 2rem);
+            font-weight: 600;
+            text-align: center;
+            color: var(--text-primary);
+            margin-bottom: 2rem;
+        }
+
+        .wishes-text {
+            font-size: clamp(1rem, 2.5vw, 1.125rem);
+            line-height: 1.8;
+            color: var(--text-secondary);
+            text-align: center;
+            margin-bottom: 2.5rem;
+        }
+
+        .wishes-text p {
+            margin-bottom: 1.5rem;
+        }
+
+        .wishes-text .highlight {
+            color: var(--accent-color);
+            font-weight: 600;
+            position: relative;
+        }
+
+        .wishes-text .special {
+            background: var(--secondary-gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            font-weight: 700;
+        }
+
+        .signature {
+            text-align: center;
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(1.125rem, 2.5vw, 1.25rem);
+            color: var(--text-primary);
+            font-weight: 500;
+            border-top: 1px solid var(--border-light);
+            padding-top: 2rem;
+            margin-top: 2rem;
+        }
+
+        /* Floating Elements */
+        .floating-element {
+            position: absolute;
+            opacity: 0.1;
+            pointer-events: none;
+            animation: gentleFloat 8s ease-in-out infinite;
+        }
+
+        .floating-element:nth-child(1) {
+            top: 10%;
+            left: 5%;
+            animation-delay: 0s;
+            font-size: 2rem;
+        }
+
+        .floating-element:nth-child(2) {
+            top: 20%;
+            right: 10%;
+            animation-delay: 2s;
+            font-size: 1.5rem;
+        }
+
+        .floating-element:nth-child(3) {
+            bottom: 20%;
+            left: 15%;
+            animation-delay: 4s;
+            font-size: 2.5rem;
+        }
+
+        .floating-element:nth-child(4) {
+            bottom: 30%;
+            right: 5%;
+            animation-delay: 1s;
+            font-size: 1.75rem;
+        }
+
+        @keyframes gentleFloat {
+            0%, 100% { transform: translateY(0px) rotate(0deg); }
+            50% { transform: translateY(-15px) rotate(2deg); }
+        }
+
+        /* Animations */
+        @keyframes fadeInDown {
+            from {
+                opacity: 0;
+                transform: translateY(-30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .container {
+                padding: 1.5rem 1rem;
+                gap: 2rem;
+            }
+
+            .sisters-section {
+                grid-template-columns: 1fr;
+                gap: 1.5rem;
+            }
+
+            .sister-card {
+                padding: 1.5rem;
+            }
+
+            .avatar-container {
+                width: 100px;
+                height: 100px;
+            }
+
+            .avatar {
+                width: 100px;
+                height: 100px;
+                font-size: 2.5rem;
+            }
+
+            .sister-name {
+                font-size: 1.5rem;
+            }
+
+            .sister-message {
+                font-size: 0.9rem;
+            }
+
+            .wishes-card {
+                padding: 2rem 1.5rem;
+            }
+
+            .floating-element {
+                display: none;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .container {
+                padding: 1rem;
+                gap: 1.5rem;
+            }
+
+            .sister-card {
+                padding: 1.25rem;
+            }
+
+            .avatar-container {
+                width: 80px;
+                height: 80px;
+            }
+
+            .avatar {
+                width: 80px;
+                height: 80px;
+                font-size: 2rem;
+            }
+
+            .wishes-card {
+                padding: 1.5rem 1rem;
+            }
+
+            .wishes-title {
+                margin-bottom: 1.5rem;
+            }
+
+            .wishes-text {
+                margin-bottom: 2rem;
+            }
+
+            .signature {
+                padding-top: 1.5rem;
+                margin-top: 1.5rem;
+            }
+        }
+
+        /* Print styles */
+        @media print {
+            .floating-element {
+                display: none;
+            }
+            
+            body {
+                background: white;
+            }
+            
+            .container {
+                max-width: none;
+                margin: 0;
+                padding: 1rem;
+            }
+        }
+
+        /* Accessibility improvements */
+        @media (prefers-reduced-motion: reduce) {
+            * {
+                animation-duration: 0.01ms !important;
+                animation-iteration-count: 1 !important;
+                transition-duration: 0.01ms !important;
+            }
+        }
+
+        /* Focus styles for accessibility */
+        .sister-card:focus-within {
+            outline: 2px solid var(--accent-color);
+            outline-offset: 2px;
+        }
+
+        /* High contrast mode support */
+        @media (prefers-contrast: high) {
+            :root {
+                --text-primary: #000000;
+                --text-secondary: #333333;
+                --border-light: #666666;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="bg-decoration"></div>
+    
+    <!-- Subtle floating decorations -->
+    <div class="floating-element">🌸</div>
+    <div class="floating-element">✨</div>
+    <div class="floating-element">💫</div>
+    <div class="floating-element">🌟</div>
+
+    <div class="container">
+        <header class="header">
+            <h1 class="main-title">रक्षा बंधन मुबारक</h1>
+            <p class="subtitle">मेरी सबसे प्यारी बहनों के लिए</p>
+            <div class="decorative-line"></div>
+        </header>
+
+        <section class="sisters-section">
+            <div class="sister-card">
+                <div class="avatar-container">
+                    <div class="avatar sonu-avatar">
+                        👸🏻
+                    </div>
+                </div>
+                <h2 class="sister-name">सोनू</h2>
+                <p class="sister-message">
+                    मेरी <span class="highlight">प्यारी राजकुमारी सोनू</span>,<br>
+                    तू है मेरे दिल की <span class="highlight">धड़कन</span>,<br>
+                    तेरी मुस्कान से रोशन होता है <span class="highlight">हमारा घर</span>।
+                </p>
+            </div>
+
+            <div class="sister-card">
+                <div class="avatar-container">
+                    <div class="avatar monu-avatar">
+                        🧚🏻‍♀️
+                    </div>
+                </div>
+                <h2 class="sister-name">मोनू</h2>
+                <p class="sister-message">
+                    मेरी <span class="highlight">छोटी परी मोनू</span>,<br>
+                    तू है मेरी जिंदगी का <span class="highlight">सबसे खूबसूरत एहसास</span>,<br>
+                    तेरी हंसी में छुपा है <span class="highlight">मेरा सारा प्यार</span>।
+                </p>
+            </div>
+        </section>
+
+        <div class="wishes-card">
+            <div class="wishes-content">
+                <h2 class="wishes-title">मेरे दिल की बात</h2>
+                
+                <div class="wishes-text">
+                    <p>मेरी <span class="highlight">सोनू और मोनू</span>,</p>
+                    
+                    <p>तुम दोनों हो मेरी दुनिया के <span class="special">सबसे अनमोल रत्न</span>,<br>
+                    तुम्हारे बिना अधूरा है मेरा <span class="highlight">हर सपना, हर सफर</span>।</p>
+                    
+                    <p>जब से आई हो तुम मेरी जिंदगी में,<br>
+                    हर दिन लगता है <span class="highlight">त्योहार की तरह</span>,<br>
+                    तुम्हारी हंसी की आवाज़ में छुपा है <span class="special">स्वर्ग का एहसास</span>।</p>
+                    
+                    <p>यह राखी का धागा सिर्फ धागा नहीं,<br>
+                    बल्कि है <span class="highlight">अनंत प्रेम की निशानी</span>,<br>
+                    जो कहता है कि हर मुश्किल में <span class="special">मैं हूं तुम्हारा संरक्षक</span>।</p>
+                    
+                    <p>चांद भी शर्माए तुम्हारी खूबसूरती देखकर,<br>
+                    सितारे भी करें तुम्हारी <span class="highlight">चमक का इंतज़ार</span>,<br>
+                    ऐसी हो मेरी बहनें, <span class="special">दुनिया का गर्व और गौरव</span>।</p>
+                    
+                    <p>भगवान करे तुम्हारी हर दुआ हो <span class="highlight">स्वीकार</span>,<br>
+                    तुम्हारे चेहरे से कभी न जाए <span class="special">यह मनमोहक मुस्कान</span>,<br>
+                    हमेशा खुश रहो, यही है मेरी <span class="highlight">सबसे बड़ी कामना</span>।</p>
+                    
+                    <p><span class="special">रक्षा बंधन की हार्दिक शुभकामनाएं!</span></p>
+                </div>
+
+                <div class="signature">
+                    तुम्हारा सबसे प्यारा भाई 💝<br>
+                    जो हमेशा करेगा तुम्हारी रक्षा ✨
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
